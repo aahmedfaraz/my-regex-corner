@@ -163,4 +163,39 @@ string = '12345 ahmed 54321 faraz 1234 calm 12345 calm 1234 peace';
 console.log(string.match(regex));
 // Output: [ '12345 ahmed', '54321 faraz' ]
 
+// ======================================== 6. Special Characters
 
+// NOTE:
+// - `+` The one-or-more quatifier
+// - `\` The escape character
+// - `[]` The character set
+// - `[^]` The negate symbol in a character set
+// - `?` The zero-or-one quantifier (makes a preceding character optional)
+// - `.` Any character whatsoever (except the new line)
+// - `*` The zero-or-more quantifier (a bit like +)
+
+// 6.1. Special Character (?)
+regex = new RegExp(/keys?/g); // character before ? (s) is now optional
+string = 'keys key';
+console.log(string.match(regex));
+// Output: [ 'keys', 'key' ]
+regex = new RegExp(/ke?ys?/g); // character before ? (s & e) are now optional
+string = 'keys kys key ky';
+console.log(string.match(regex));
+// Output: [ 'keys', 'kys', 'key', 'ky' ]
+
+// 6.2. Special Character (.)
+regex = new RegExp(/car./g); // character at (.) position can be anything now (except new line)
+string = 'car cars car1 card car#';
+console.log(string.match(regex));
+// Output: [ 'car ', 'cars', 'car1', 'card', 'car#' ]
+regex = new RegExp(/.car./g); // characters at (.) position can be anything now (except new line)
+string = 'car cars car1 card car# 1car 1car1 2card';
+console.log(string.match(regex));
+// Output: [ ' cars', ' car1', ' card', ' car#', '1car ', '1car1', '2card']
+
+// 6.3. Special Character (*)
+regex = new RegExp(/ahmed[0-9]*faraz/g); // character set before * can repeat either 0 or infinite times
+string = 'ahmedfaraz ahmed1 1faraz ahmed faraz ahmed1faraz ahmedofaraz ahmed_faraz ahmed@faraz';
+console.log(string.match(regex));
+// Output: [ 'ahmedfaraz', 'ahmed1faraz' ]
