@@ -135,3 +135,32 @@ regex = new RegExp(/[a-z]{5,}/g); // match anything atleast have 5 characters
 string = 'bin pin tin jupiter saturn typewriter successful';
 console.log(string.match(regex));
 // Output: [ 'jupiter', 'saturn', 'typewriter', 'successful' ]
+
+// ======================================== 5. Metacharacters and Escaping
+
+// NOTE:
+// - `\d` match any digit character (same as [0-9])
+// - `\w` match any word character (same as a-z,A-Z,0-9 and \_'s)
+// - `\s` match a whitespace character (spaces, tabs etc)
+regex = new RegExp(/\d/g); // match any single character to be a digit
+string = '12345';
+console.log(string.match(regex));
+// Output: [ '1', '2', '3', '4', '5' ]
+regex = new RegExp(/\w/g); // match any single character to be a word
+string = 'ahmed';
+console.log(string.match(regex));
+// Output: [ 'a', 'h', 'm', 'e', 'd' ]
+regex = new RegExp(/\s/g); // match any single character to be a whitespace character
+string = ' a b c    d   e   f';
+console.log(string.match(regex));
+// Output: [ ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+regex = new RegExp(/\d\s\w/g); // This should be digit then space then word
+string = '0 a - 1 b - 2 c';
+console.log(string.match(regex));
+// Output: [ '0 a', '1 b', '2 c' ]
+regex = new RegExp(/\d{5}\s\w{5}/g); // This should be 5 digits then space then 5 words
+string = '12345 ahmed 54321 faraz 1234 calm 12345 calm 1234 peace';
+console.log(string.match(regex));
+// Output: [ '12345 ahmed', '54321 faraz' ]
+
+

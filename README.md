@@ -16,3 +16,10 @@ string = "string to be search for exp";
 console.log(string.match(regex));
 // Output:[ 'exp', index: 24, input: 'string to be search for exp', groups: undefined ]
 ```
+
+## Metacharacters
+
+- `\d` match any digit character (same as **[0-9]**)
+- `\w` match any word character (same as **a-z**,**A-Z**,**0-9** and **\_'s**)
+- `\s` match a whitespace character (**spaces**, **tabs** etc)
+- `\t` match a tab character only
