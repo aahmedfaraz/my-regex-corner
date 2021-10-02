@@ -67,3 +67,31 @@ regex = new RegExp(/[^fw]ix/g); // Match every character except f and w at first
 string = 'fix six mix wix';
 console.log(string.match(regex));
 // Output: [ 'six', 'mix' ]
+
+// ======================================== 3. Ranges
+
+// 3.1. to match characters within a range
+// NOTE: with - sign between two characters in [] braces shows range
+regex = new RegExp(/[a-z]1/g); // Match every character between a to z at first position
+string = 'a1 b1 c1 A1 B1 C1 11 21 31';
+console.log(string.match(regex));
+// Output: [ 'a1', 'b1', 'c1' ]
+regex = new RegExp(/[a-zA-Z]1/g); // Match every character between a to z & A to Z at first position
+string = 'a1 b1 c1 A1 B1 C1 11 21 31';
+console.log(string.match(regex));
+// Output: [ 'a1', 'b1', 'c1', 'A1', 'B1', 'C1' ]
+regex = new RegExp(/[a-zA-Z0-9]1/g); // Match every character between a to z, A to Z & 0 to 9 at first position
+string = 'a1 b1 c1 A1 B1 C1 11 21 31';
+console.log(string.match(regex));
+// Output: [ 'a1', 'b1', 'c1', 'A1', 'B1', 'C1', '11', '21', '31']
+
+// 3.2. to apply character set on more than one number
+regex = new RegExp(/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/g); // Pakistan Phone number
+string = '03001234567';
+console.log(string.match(regex));
+// Output: [ '03001234567' ]
+regex = new RegExp(/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/g); // Pakistan Phone number
+string = '0300-1234567';
+console.log(string.match(regex));
+// Output: null
+
