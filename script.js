@@ -95,3 +95,43 @@ string = '0300-1234567';
 console.log(string.match(regex));
 // Output: null
 
+// ======================================== 4. Repeating Characters
+
+// 4.1. to repeat character set for atleast one time upto as many times as possible
+// NOTE: + flag will match atleast one character with character set upto as many characters as possibly matched together
+regex = new RegExp(/[0-9]+/g);
+string = '0123a4567b89c';
+console.log(string.match(regex));
+// Output: [ '0123', '4567', '89' ]
+regex = new RegExp(/[a-z]+@gmail.com/g);
+string = 'ahmed@gmail.com faraz@gmail.com ahmed@yahoo.com';
+console.log(string.match(regex));
+// Output: [ 'ahmed@gmail.com', 'faraz@gmail.com' ]
+
+// 4.2. to repeat character set upto specific range
+// NOTE: {} braces with character set specifies how many times charcter set should be repeated
+// without {} braces
+regex = new RegExp(/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/g); // Pakistan Phone number
+string = '03001234567';
+console.log(string.match(regex));
+// Output: [ '03001234567' ]
+// with {} braces
+regex = new RegExp(/[0-9]{11}/g); // repeat character set upto 11 characters
+string = '03001234567';
+console.log(string.match(regex));
+// Output: [ '03001234567' ]
+regex = new RegExp(/[a-z]{5}/g); // repeat character set set upto 5 characters
+string = 'bin pin tin jupiter saturn typewriter';
+console.log(string.match(regex));
+// Output: [ 'jupit', 'satur', 'typew', 'riter' ]
+
+// 4.3. to repeat character set in between a range
+// NOTE: [characterSet]{min, max} is syntax for match character in between a specific range
+regex = new RegExp(/[a-z]{5,8}/g); // repeat character set set in between 5 to 8 characters (min: 5, max: 8)
+string = 'bin pin tin jupiter saturn typewriter successful';
+console.log(string.match(regex));
+// Output: [ 'jupiter', 'saturn', 'typewrit', 'successf' ]
+regex = new RegExp(/[a-z]{5,}/g); // match anything atleast have 5 characters
+string = 'bin pin tin jupiter saturn typewriter successful';
+console.log(string.match(regex));
+// Output: [ 'jupiter', 'saturn', 'typewriter', 'successful' ]
