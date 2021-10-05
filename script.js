@@ -199,3 +199,35 @@ regex = new RegExp(/ahmed[0-9]*faraz/g); // character set before * can repeat ei
 string = 'ahmedfaraz ahmed1 1faraz ahmed faraz ahmed1faraz ahmedofaraz ahmed_faraz ahmed@faraz';
 console.log(string.match(regex));
 // Output: [ 'ahmedfaraz', 'ahmed1faraz' ]
+
+// ======================================== 7. Starting and Ending Pattern
+
+// NOTE
+// - `^` Defines start of string
+// - `$` Defines end of string
+
+// 7.1. Check for first five numbers
+regex = new RegExp(/^[a-z]{5}/g); // ^ means fisrt five character
+string = 'faraz12345 12345ahmed';
+console.log(string.match(regex));
+// Output: [ 'faraz' ]
+
+// 7.2. Check for last five numbers
+regex = new RegExp(/[a-z]{5}$/g); // $ means last five character
+string = 'faraz12345 12345ahmed';
+console.log(string.match(regex));
+// Output: [ 'ahmed' ]
+
+// 7.3. Go for exact five numbers
+regex = new RegExp(/^[a-z]{5}$/g); // ^ & $ combined means exact five character
+string = 'jupiter';
+console.log(string.match(regex));
+// Output: null
+regex = new RegExp(/^[a-z]{5}$/g); // ^ & $ combined means exact five character
+string = 'earth';
+console.log(string.match(regex));
+// Output: [ 'ahmed' ]
+regex = new RegExp(/^[a-z]{5}$/g); // ^ & $ combined means exact five character
+string = 'mars';
+console.log(string.match(regex));
+// Output: null

@@ -33,6 +33,8 @@ console.log(string.match(regex));
 - `?` The zero-or-one quantifier (makes a preceding character optional)
 - `.` Any character whatsoever (except the new line)
 - `*` The zero-or-more quantifier (a bit like +)
+- `^` Defines start of string
+- `$` Defines end of string
 
 ## If want to match including special characters
 
