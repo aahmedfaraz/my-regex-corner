@@ -231,3 +231,35 @@ regex = new RegExp(/^[a-z]{5}$/g); // ^ & $ combined means exact five character
 string = 'mars';
 console.log(string.match(regex));
 // Output: null
+
+// ======================================== 8. Alternate Characters (|)
+
+// NOTE
+// - `|` works as OR operator in regex
+
+regex = new RegExp(/a|bus/g); // matches for a or bus (Not a or b)
+string = 'a bus aus';
+console.log(string.match(regex));
+// Output: [ 'a', 'bus', 'a' ]
+regex = new RegExp(/(a|b)us/g); // Now matches for a or b
+string = 'a bus aus';
+console.log(string.match(regex));
+// Output: [ 'bus', 'aus' ]
+regex = new RegExp(/g(l|r)ow/g); // same as above matches for `l` or `r`
+string = 'grow glow glrow grlow';
+console.log(string.match(regex));
+// Output: [ 'grow', 'glow' ]
+
+// SOME ACTIVITY
+regex = new RegExp(/(english|chinese|spanish) language/g); // same as above matches for different languages with letter language
+string = 'english chinese spanish';
+console.log(string.match(regex));
+// Output: null
+regex = new RegExp(/(english|chinese|spanish) language/g); // same as above matches for different languages with letter language
+string = 'english chinese spanish language';
+console.log(string.match(regex));
+// Output: [ ' spanish language' ]
+regex = new RegExp(/(english|chinese|spanish) language/g); // same as above matches for different languages with letter language
+string = 'language english language chinese language spanish';
+console.log(string.match(regex));
+// Output: [ 'english language', 'chinese language' ]

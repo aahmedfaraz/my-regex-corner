@@ -35,6 +35,7 @@ console.log(string.match(regex));
 - `*` The zero-or-more quantifier (a bit like +)
 - `^` Defines start of string
 - `$` Defines end of string
+- `|` works as OR operator in regex
 
 ## If want to match including special characters
 
